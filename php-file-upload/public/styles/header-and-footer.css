@@ -1,0 +1,154 @@
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat;
+    overflow-x: hidden;
+}
+
+
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 5px 40px;
+    background-color: #161616;
+}
+
+.refresh {
+    padding: 5px 0px;
+    border: 1px solid #00A1BB;
+    border-radius: 5px;
+    color: #00A1BB;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.refresh:hover {
+    background-color: rgba(128, 128, 128, 0.138);
+}
+
+#log-out-btn {
+    color: red;
+    border: 1px solid red;
+}
+
+
+
+.doc-title {
+    color: #00A1BB;
+}
+
+.header-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    right: -300px;
+    top: 0px;
+    padding: 0px 40px;
+    background-color: #161616;
+    height: 100vh;
+    width: 200px;
+    transition: all 0.4s;
+}
+
+.header-nav.animate-header-nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    right: 0px;
+    top: 0px;
+    padding: 0px 40px;
+    background-color: #161616;
+    height: 100vh;
+    width: 200px;
+    transition: all 0.4s;
+}
+
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 0px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+header nav ul a {
+    display: block;
+    width: 100%;
+}
+
+
+.user-picture {
+    height: 100px;
+    width: 100px;
+}
+
+header nav ul ::marker {
+    content: "";
+}
+
+
+
+
+/* Nav Bar */
+
+#hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    background-color: white;
+    height: 4px;
+    width: 40px;
+    transition: transform 0.2s, opacity 0s, background-color 0.2s;
+    border-radius: 10px;
+}
+
+.animate-bars .bar1 {
+    transform: rotate(-45deg) translate(-5px, 9px);
+}
+
+.animate-bars .bar2 {
+    opacity: 0;
+}
+
+.animate-bars .bar3 {
+    transform: rotate(45deg) translate(-5px, -9px);
+}
+
+#hamburger-menu:hover .allBars {
+    background-color: #00A1BB;
+}
+
+.profile-circle {
+    border-radius: 180%;
+    border: 4px solid #00A1BB;
+    color: #00A1BB;
+    font-weight: bold;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.profile-picture-btn {
+    text-decoration: none;
+}
