@@ -43,6 +43,7 @@ class RegisterController extends BaseController {
                 $formInput['email'],
                 $formInput['password']
             );
+            Session::flash('success', 'Registrierung erfolgreich! Sie können sich jetzt anmelden.');
             $this->response->redirectTo('/login');
         } catch (Exception $e) {
             $this->response->view('register/index', [

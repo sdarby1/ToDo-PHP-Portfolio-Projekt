@@ -1,5 +1,5 @@
 <main>
-    <h1>Register</h1>
+    <h1 class="headline">Registrieren</h1>
     <div class="form-container">
         <form action="" method="post" novalidate>
             <?php if (isset($errors['root'])): ?>

@@ -1,5 +1,6 @@
 <?php
 
+
 class Request {
     private array $pageParams;
 

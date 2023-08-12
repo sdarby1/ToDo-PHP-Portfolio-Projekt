@@ -37,6 +37,11 @@ header {
 }
 
 
+.message {
+    text-align: center;
+    padding: 20px 0px;
+}
+
 
 .doc-title {
     color: #00A1BB;
@@ -151,4 +156,9 @@ header nav ul ::marker {
 
 .profile-picture-btn {
     text-decoration: none;
+}
+
+#logout-btn.refresh {
+    border: 1px solid red;
+    color: red;
 }

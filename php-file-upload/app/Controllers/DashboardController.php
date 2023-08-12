@@ -1,8 +1,18 @@
 <?php
 
+
+
 class DashboardController extends BaseController {
+    use HasProtectedRoutes;
+
     public function index()
     {
-        $this->response->view('dashboard/index');
+        $this->redirectAnonymousUsers();
+
+        $posts = $this->user->getPosts();
+
+        $this->response->view('dashboard/index', [
+            'posts' => $posts
+        ]);
     }
 }

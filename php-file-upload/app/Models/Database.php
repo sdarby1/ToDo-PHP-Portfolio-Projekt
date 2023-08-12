@@ -5,7 +5,7 @@ class Database {
     private string $databaseName = 'mvc_2023';
     private string $charset = 'utf8mb4';
     private string $username = 'root';
-    private string $password = ''; //macos/mamp -> 'root'
+    private string $password = ''; 
 
     private PDO $pdo;
     private PDOStatement $statement;

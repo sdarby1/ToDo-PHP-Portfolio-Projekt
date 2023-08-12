@@ -1,0 +1,39 @@
+.post-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: #161616;
+    padding: 80px 120px;
+    border-radius: 20px;
+    margin-top: 80px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.post img {
+    height: 400px;
+    border: 1px solid #00A1BB;
+    box-shadow: 0px 0px 7px #00A1BB inset, 0px 0px 7px #00A1BB;
+}
+
+.post div, .post p {
+    font-size: 1.2em;
+    text-align: center;
+    text-overflow: inherit;
+}
+
+.post a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid white;
+}

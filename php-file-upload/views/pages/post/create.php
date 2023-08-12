@@ -1,4 +1,4 @@
-<h1>Write Your Post</h1>
+<h1 class="headline">Erstelle einen neuen Post</h1>
 
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">

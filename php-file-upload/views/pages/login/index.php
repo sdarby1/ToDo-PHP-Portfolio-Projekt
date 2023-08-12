@@ -1,12 +1,10 @@
-<h1>Login</h1>
-
-<?php if (isset($_SESSION['message'])): ?>
-    <div class="message success"><?php echo $_SESSION['message']; ?></div>
-    <?php unset($_SESSION['message']); ?>
-<?php endif; ?>
+<h1 class="headline">Einloggen</h1>
 
 <div class="form-container">
     <form action="" method="post" novalidate>
+
+        <input type="hidden" name="csrfToken" value="<?= $csrfToken ?>">
+
         <?php if (isset($errors['root'])): ?>
             <?php foreach ($errors['root'] as $error): ?>
                 <div class="message error"><?= $error ?></div>
