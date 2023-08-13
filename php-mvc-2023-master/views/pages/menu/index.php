@@ -1,8 +1,6 @@
 <main>
 
-        <div class="headline">
-            <h1>Speisekarte</h1>
-        </div>
+        <h1 class="headline">Speisekarte</h1>
 
         <!-- Navigation -->
         <nav class="foodgroups">
@@ -70,7 +68,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="pizza">Pizza</h2>
-                <img src="Images/Speisen/Pizzagericht.jpg">
+                <img src="/style-images/menu-images/Pizzagericht.jpg">
             </div>
             <table>
                 <tr>
@@ -120,7 +118,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="pasta">Pasta</h2>
-                <img src="Images/Speisen/Pastagericht.jpg">
+                <img src="/style-images/menu-images/Pastagericht.jpg">
             </div>
             <table>
                 <tr>
@@ -170,7 +168,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="fleisch">Fleischgerichte</h2>
-                <img src="Images/Speisen/Fleischgericht.jpg">
+                <img src="/style-images/menu-images/Fleischgericht.jpg">
             </div>
             <table>
                 <tr>
@@ -220,7 +218,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="veggie">Vegetarische Gerichte</h2>
-                <img src="Images/Speisen/Vegetarischgericht.jpg">
+                <img src="/style-images/menu-images/Vegetarischgericht.jpg">
             </div>
             <table>
                 <tr>
@@ -252,7 +250,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="salat">Salate</h2>
-                <img src="Images/Speisen/Salatgericht.jpg">
+                <img src="/style-images/menu-images/Salatgericht.jpg">
             </div>
             <table>
                 <tr>
@@ -300,7 +298,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="alkohol">Alkoholische Getränke</h2>
-                <img src="Images/Speisen/Alkoholgetränk.jpg">
+                <img src="/style-images/menu-images/Alkoholgetränk.jpg">
             </div>
             <table>
                 <tr>
@@ -336,7 +334,7 @@
         <div class="foodgroup">
             <div class="foodhead">
                 <h2 id="alkoholfrei">Alkoholfreie Getränke</h2>
-                <img src="Images/Speisen/Alkoholfreigetränk.jpg">
+                <img src="/style-images/menu-images/Alkoholfreigetränk.jpg">
             </div>
             <table>
                 <tr>

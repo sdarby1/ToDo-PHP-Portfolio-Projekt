@@ -26,20 +26,20 @@ class Post {
 
 
     public function getAllPosts(): array {
-        $sql = "SELECT * FROM `posts`";
+        $sql = "SELECT * FROM posts";
         $postQuery = $this->db->query($sql);
-        var_dump($postQuery);
-        foreach ($postQuery as $post) {
-            $post->images = $post->getImages();
-        }
 
         $postData = $postQuery->results();
-       
-        $this->setColumnsAsProperties($postData);
+
+        foreach ($postData as $key => $post) {
+            $sql = "SELECT * FROM post_images WHERE post_id = :post_id";
+            $postImages = $this->db->query($sql, [ 'post_id' => $post['id'] ])->results();
+
+            $postData[$key]["images"] = $postImages;
+        }
 
         return $postData;
     }
-    
 
 
     public function find(int $id): bool
@@ -63,7 +63,7 @@ class Post {
         $statement = $this->db->query($sql, [ 'title' => $title ]);
 
         if ($statement->rowCount() > 0) {
-            throw new Exception(data: [ 'title' => ["A post with the same title already exists."] ]);
+            throw new Exception(data: [ 'title' => ["❌ Es existiert bereits ein Post mit diesem Titel."] ]);
         }
 
         $sql = "
@@ -137,56 +137,6 @@ class Post {
         return (bool) $deleteQuery->rowCount();
     }
 
-    public function like(int $userId): bool
-    {
-        $sql = "INSERT INTO `post_likes` (`user_id`, `post_id`) VALUES (:userId, :postId)";
-
-        try {
-            $likeQuery = $this->db->query($sql, [
-                'userId' => $userId,
-                'postId' => $this->getId()
-            ]);
-        } catch (Exception $e) {
-            return false;
-        }
-
-        return (bool) $likeQuery->rowCount();
-    }
-
-    public function dislike(int $userId): bool
-    {
-        $sql = "DELETE FROM `post_likes` WHERE `post_id` = :postId AND `user_id` = :userId";
-
-        $dislikeQuery = $this->db->query($sql, [
-            'userId' => $userId,
-            'postId' => $this->getId()
-        ]);
-
-        return (bool) $dislikeQuery->rowCount();
-    }
-
-    public function getLikeCount(): int
-    {
-        $sql = "SELECT COUNT(`id`) as 'like_count' FROM `post_likes` WHERE `post_id` = :postId";
-
-        $likesQuery = $this->db->query($sql, [ 'postId' => $this->getId() ]);
-
-        $firstRow = $likesQuery->results()[0];
-
-        return (int) $firstRow['like_count'];
-    }
-
-    public function isLikedBy(User $user): bool
-    {
-        $sql = "SELECT 1 FROM `post_likes` WHERE `user_id` = :userId AND `post_id` = :postId";
-
-        $likeQuery =  $this->db->query($sql, [
-            'postId' => $this->getId(),
-            'userId' => $user->getId()
-        ]);
-
-        return (bool) $likeQuery->rowCount();
-    }
 
     public function getId(): int
     {

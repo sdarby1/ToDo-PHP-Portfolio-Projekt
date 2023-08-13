@@ -1,0 +1,134 @@
+
+
+
+/**** Anfahrt ****/
+
+.anfahrt {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    align-items: center;
+    padding-bottom: 80px;
+    margin-top: 40px;
+}
+
+
+/* Karte */
+
+.map {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+}
+
+iframe {
+    width: 800px;
+    height: 500px;
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+
+/* Anfahrtdaten */
+
+.contact img {
+    height: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.social {
+    font-family: Montserrat;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.social img {
+    margin-right: 20px;
+}
+
+
+
+
+/**** Media Queries ****/
+
+@media only screen and (max-width: 1200px) and (min-width: 601px) {
+    .anfahrt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    footer {
+        position: unset;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .contactheadline h2 {
+        padding: 0px 20px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 450px;
+        border: 4px solid black;
+        border-radius: 0px;
+    }
+
+    .aboutus {
+        padding: 0px 0px;
+    }
+
+    .geschichte {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 20px;
+    }
+
+    .firstimg {
+        height: 200px;
+        width: 200px;
+        float: left;
+    }
+    
+    .secondimg {
+        height: 200px;
+        width: 200px;
+     
+    }
+
+    .anfahrt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        font-size: 90%;
+    }
+
+    .contact {
+        align-items: center;
+    }
+
+    .social {
+        font-size: 16px;
+    }
+
+    footer {
+        position: unset;
+    }
+}
+

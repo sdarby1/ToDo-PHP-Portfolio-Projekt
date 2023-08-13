@@ -12,11 +12,12 @@
     justify-content: center;
     gap: 40px;
     background-color: #161616;
-    padding: 80px 120px;
+    padding: 80px 80px;
     border-radius: 20px;
     margin-top: 80px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    max-width: 700px;
 }
 
 .post img {
@@ -42,4 +43,10 @@ h2.post-headline {
     color: rgb(166, 138, 88);
     font-family: Montserrat;
     font-weight: normal;
+}
+
+.post-list-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

@@ -12,7 +12,8 @@ use App\Controllers\{
     LogoutController,
     PostController,
     RegisterController,
-    MenuController
+    MenuController,
+    ContactController
 };
 
 class App {
@@ -66,6 +67,8 @@ class App {
         $router->get('/posts', [PostController::class, 'list']);
 
         $router->get('/menu', [MenuController::class, 'index']);
+
+        $router->get('/contact', [ContactController::class, 'index']);
     }
 
     private function autoloadClasses()

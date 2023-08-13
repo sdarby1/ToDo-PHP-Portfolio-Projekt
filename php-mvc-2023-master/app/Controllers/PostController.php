@@ -197,40 +197,4 @@ class PostController extends BaseController {
         $this->response->redirectTo("/post/{$post->getId()}");
     }
 
-    public function like(Request $request)
-    {
-        $postId = $request->getParams()['id'];
-        $post = new Post($this->db);
-
-        if (!$post->find($postId)) {
-            Session::flash('error', 'The post you tried to edit does not exist.');
-            $this->response->redirectTo('/dashboard');
-        }
-
-        $this->redirectUnintendedAccess($request);
-        $this->redirectAnonymousUsers();
-
-        if (!$post->like($this->user->getId())) {
-            Session::flash('error', "You've already liked this post.");
-        }
-
-        $this->response->redirectTo("/post/{$post->getId()}");
-    }
-
-    public function dislike(Request $request)
-    {
-        $postId = $request->getParams()['id'];
-        $post = new Post($this->db);
-
-        if (!$post->find($postId)) {
-            Session::flash('error', 'The post you tried to edit does not exist.');
-            $this->response->redirectTo('/dashboard');
-        }
-
-        $this->redirectUnintendedAccess($request);
-        $this->redirectAnonymousUsers();
-
-        $post->dislike($this->user->getId());
-        $this->response->redirectTo("/post/{$post->getId()}");
-    }
 }

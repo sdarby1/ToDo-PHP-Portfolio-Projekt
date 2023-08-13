@@ -9,19 +9,23 @@
     <link rel="stylesheet" href="/styles/post.css">
     <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/menu.css">
+    <link rel="stylesheet" href="/styles/contact.css">
     <script type="text/javascript" src="/scripts/navbar.js" defer></script>
     <title>CuCasa <?php echo $title ?? '' ?></title>
 </head>
 <body>
     <header>
+        <a href="index.html"><img class="logo" src="/style-images/Logo/logo.png" alt=""></a>
         <nav nav id="header-nav" class="header-nav">
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/menu">Speisekarte</a></li>
+                <li><a href="/posts">Blog</a></li>
+                <li><a href="/contact">Kontakt</a></li>
                 <?php if ($user->isLoggedIn()): ?>
                     <li><a href="/post/create">Post erstellen</a></li>
-                    <li><a href="/logout">Ausloggen</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/dashboard">Meine Posts</a></li>
+                    <li><a class="logout-btn" href="/logout">Ausloggen</a></li>
                 <?php else: ?>
                     <li><a href="/login">Einloggen</a></li>
                     <li><a href="/register">Registrieren</a></li>

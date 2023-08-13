@@ -46,7 +46,7 @@ class User {
         $statement = $this->db->query($sql, [ 'username' => $username, 'email' => $email ]);
 
         if ($statement->rowCount() > 0) {
-            throw new Exception("The account you tried to create already exists.");
+            throw new Exception("❌ Der Account existiert bereits.");
         }
 
         // User registrieren
