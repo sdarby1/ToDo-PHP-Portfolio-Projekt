@@ -10,10 +10,7 @@ Willkommen zu meinem MVC-Projekt! Dieses Projekt basiert auf dem MVC (Model-View
 
 ## Installation
 
-1. Lade das Projekt herunter oder klone es von GitHub:
-
-   ```bash
-   git clone https://github.com/your-username/mein-mvc-projekt.git
+1. Lade das Projekt herunter
 
 
 Navigiere in das Projektverzeichnis:
