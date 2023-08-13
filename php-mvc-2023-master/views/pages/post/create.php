@@ -1,4 +1,7 @@
-<h1 class="headline">Erstelle einen neuen Post</h1>
+
+
+
+    <h1 class="headline">Erstelle einen neuen Post</h1>
 
 <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="csrfToken" value="<?= $csrfToken ?>">
@@ -41,4 +44,6 @@
     <div class="form-group">
         <input type="submit" value="Create Post">
     </div>
+</form>
+
 </form>

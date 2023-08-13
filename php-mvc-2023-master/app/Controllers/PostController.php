@@ -1,5 +1,16 @@
 <?php
 
+namespace App\Controllers;
+
+use App\BaseController;
+use App\Request;
+use App\Models\FormValidation;
+use App\Models\FileValidation;
+use App\Models\Post;
+use App\Models\User;
+use App\Helpers\Session;
+use App\Helpers\Exception;
+use App\Traits\HasProtectedRoutes;
 
 class PostController extends BaseController {
     use HasProtectedRoutes;
@@ -11,23 +22,25 @@ class PostController extends BaseController {
 
         $post = new Post($this->db);
         if (!$post->find($postId)) {
-            Session::flash('error', 'The post you tried to view does not exist.');
+            Session::flash('error', '❌ Der Post existiert nicht.');
             $this->response->redirectTo('/dashboard');
         }
 
-         //$this->response->json(200, $post->toArray());
+        // $this->response->json(200, $post->toArray());
 
         $this->response->view('/post/index', [
             'post' => $post
         ]);
     }
 
+    // Get request for create form
     public function show()
     {
         $this->redirectAnonymousUsers();
         $this->response->view('/post/create');
     }
 
+    // Post request from form
     public function create(Request $request)
     {
         $this->redirectAnonymousUsers();
@@ -36,7 +49,7 @@ class PostController extends BaseController {
         $formValidation = new FormValidation($postData);
 
         $formValidation->setRules([
-            'title' => 'required|min:10|max:64',
+            'title' => 'required|min:4|max:64',
             'body' => 'required|min:10'
         ]);
 
@@ -69,6 +82,7 @@ class PostController extends BaseController {
                 $postData['body'],
                 $imageData['image']
             );
+            Session::flash('success', "✅ Der Post wurde erfolgreich erstellt.");
             $this->response->redirectTo("/post/{$post->getId()}");
         } catch (Exception $e) {
             $this->response->view('post/create', [
@@ -77,13 +91,13 @@ class PostController extends BaseController {
         }
     }
 
-    public function listPosts(Request $request)
+    public function list(Request $request)
     {
         $post = new Post($this->db);
-        $posts = $post->getAllPosts();
-    
+        $allPosts = $post->getAllPosts();
+
         $this->response->view('post/list', [
-            'posts' => $posts
+            'posts' => $allPosts
         ]);
     }
     
@@ -104,7 +118,7 @@ class PostController extends BaseController {
 
         $this->redirectAnonymousUsers();
 
-        if ($this->user->owns($post)) {
+        if (!$this->user->owns($post)) {
             Session::flash('error', 'You do not have permission to delete this post.');
             $this->response->redirectTo('/dashboard');
         }
@@ -114,7 +128,7 @@ class PostController extends BaseController {
             return $this->response->redirectTo('/dashboard');
         }
 
-        Session::flash('success', 'The post was successfully deleted.');
+        Session::flash('success', '✅ Der Post wurde erfolgreich gelöscht.');
         return $this->response->redirectTo('/dashboard');
     }
 
@@ -157,7 +171,7 @@ class PostController extends BaseController {
         $validation = new FormValidation($formInput);
 
         $validation->setRules([
-            'title' => 'required|min:10|max:64',
+            'title' => 'required|min:4|max:64',
             'body' => 'required|min:10'
         ]);
 
@@ -219,6 +233,4 @@ class PostController extends BaseController {
         $post->dislike($this->user->getId());
         $this->response->redirectTo("/post/{$post->getId()}");
     }
-
 }
-

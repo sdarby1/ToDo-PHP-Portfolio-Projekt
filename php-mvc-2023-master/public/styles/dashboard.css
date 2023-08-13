@@ -1,0 +1,31 @@
+.dashboard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.your-posts-container {
+    display: flex;
+    gap: 20px;
+}
+
+.your-posts-container a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid white;
+    margin-bottom: 20px;
+}
+
+.your-posts-container a.your-post {
+    color: rgb(166, 138, 88);
+    border: 1px solid rgb(166, 138, 88);
+}
+
+.dashboard-headline {
+    font-family: Montserrat;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+}

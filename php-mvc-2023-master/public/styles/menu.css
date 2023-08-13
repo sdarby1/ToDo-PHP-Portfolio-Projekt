@@ -1,0 +1,238 @@
+
+main nav {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+main nav::-webkit-scrollbar {
+    width: 12px ;
+ }
+
+ main nav::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   -webkit-border-radius: 10px;
+   border-radius: 10px ;
+ }
+
+ main nav::-webkit-scrollbar-thumb {
+   -webkit-border-radius: 10px;
+   border-radius: 10px ;
+   background: rgb(36, 36, 36) ; 
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) ; 
+   border: 4px solid white;
+
+ }
+ main nav::-webkit-scrollbar-thumb:window-inactive {
+   background: rgb(36, 36, 36); 
+   border: 4px solid white;
+ }
+
+
+ /* Food Groups */
+
+.foodgroups {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0px;
+    border-top: 2px solid black; 
+    border-bottom: 2px solid black; 
+    position: sticky;
+    top: 0px;
+}
+
+.foodgroups a {
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+    font-family: Montserrat;
+    font-size: 20px;
+    transition: all 0.2s;
+    border-bottom: 1px solid transparent;
+    margin: 0px 20px;
+}
+
+.foodgroups a:hover {
+    border-bottom: 1px solid black;
+}
+
+.foodgroup {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-bottom: 4px solid black;
+    margin: 0px 80px;
+    background-color:rgb(255, 255, 255);
+    align-items: center;
+}
+
+.foodgroup table {
+    width: fit-content;
+    align-content: center;
+    font-family: Montserrat;
+    line-height: 10px;
+    gap: 70px;
+    font-size: 20px;
+    font-weight: light;
+    color: rgb(36, 36, 36);
+}
+
+.foodgroup th {
+    padding-right: 80px; 
+    align-content: center;
+    padding-bottom: 70px;
+}
+
+.fooddescription {
+    font-size: 14px;
+    font-weight: lighter;
+    color:rgb(66, 66, 66);
+}
+
+.foodhead {
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 80px 0px;
+}
+
+.foodhead img {
+   border: 2px solid black;
+   width: 150px;
+   height: 150px;
+   border-radius: 100px;
+   background-position: center;
+   background-size: cover;
+}
+
+.foodhead h2 {
+    margin: 10px;
+    padding: 0px 5px;
+    font-family: Montserrat;
+    font-weight: normal;
+    color: black;
+}
+
+.foodgroup ul {
+    text-align: center;
+    padding: 0px;
+    line-height: 48px;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+::marker {
+    content: none;
+}
+
+
+
+
+/**** Media Queries ****/
+
+@media only screen and (max-width: 1200px) and (min-width: 601px) {
+    .headline h1 {
+        margin: 40px 40px;
+    }
+
+    .foodgroup tr {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+       text-align: center;
+     }
+
+     .foodhead {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+    }
+
+    .foodhead img {
+        margin: 80px 0px;
+    }
+    .foodgroup th {
+        padding: 8px;
+        line-height: 100%;
+    }
+
+    main nav::-webkit-scrollbar-thumb {
+        border: 0px solid white;
+     
+      }
+      main nav::-webkit-scrollbar-thumb:window-inactive {
+        border: 0px solid white;
+      }
+}
+
+
+@media only screen and (max-width: 707px) and (min-width: 601px) {
+    .foodhead h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .headline {
+        padding: 20px; 
+    }
+
+    .headline h1 {
+        margin: 40px 40px;
+  
+    }
+
+    .foodgroup {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
+    .foodgroup tr {
+       display: flex;
+       flex-direction: column;
+       padding-bottom: 100px;
+    }
+
+    .foodgroup th {
+        padding: 8px;
+        line-height: 100%;
+    }
+
+    .foodhead {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+    }
+
+    .foodhead h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .foodhead img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 40px;
+    }
+
+    .foodgroup li {
+        margin-bottom: 10px;
+    } 
+
+    main nav::-webkit-scrollbar-thumb {
+        border: 0px solid white;
+     
+      }
+      main nav::-webkit-scrollbar-thumb:window-inactive {
+        border: 0px solid white;
+      }
+}
