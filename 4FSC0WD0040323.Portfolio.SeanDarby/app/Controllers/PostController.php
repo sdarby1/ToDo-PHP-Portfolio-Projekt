@@ -15,7 +15,7 @@ use App\Traits\HasProtectedRoutes;
 class PostController extends BaseController {
     use HasProtectedRoutes;
 
-    // Show a single post
+
     public function index(Request $request)
     {
         $postId = $request->getParams()['id'];
@@ -33,14 +33,14 @@ class PostController extends BaseController {
         ]);
     }
 
-    // Get request for create form
+
     public function show()
     {
         $this->redirectAnonymousUsers();
         $this->response->view('/post/create');
     }
 
-    // Post request from form
+
     public function create(Request $request)
     {
         $this->redirectAnonymousUsers();
@@ -104,7 +104,7 @@ class PostController extends BaseController {
 
     public function delete(Request $request)
     {
-        // Get post id
+       
         $postId = $request->getParams()['id'];
 
         $this->redirectUnintendedAccess($request, '/dashboard');
@@ -112,19 +112,19 @@ class PostController extends BaseController {
         $post = new Post($this->db);
 
         if (!$post->find($postId)) {
-            Session::flash('error', 'This post has already been deleted.');
+            Session::flash('error', '❌ Dieser Post wurde bereits gelöscht.');
             $this->response->redirectTo('/dashboard');
         }
 
         $this->redirectAnonymousUsers();
 
         if (!$this->user->owns($post)) {
-            Session::flash('error', 'You do not have permission to delete this post.');
+            Session::flash('error', '❌ Du hast nicht die Berechtigung, um diesen Post zu löschen.');
             $this->response->redirectTo('/dashboard');
         }
 
         if (!$post->delete()) {
-            Session::flash('error', 'Something went wrong');
+            Session::flash('error', '❌ Something went wrong');
             return $this->response->redirectTo('/dashboard');
         }
 
@@ -138,7 +138,7 @@ class PostController extends BaseController {
 
         $post = new Post($this->db);
         if (!$post->find($postId)) {
-            Session::flash('error', 'The post you tried to edit does not exist.');
+            Session::flash('error', '❌ Der Post, den du bearbeiten möchtest, existiert nicht.');
             $this->response->redirectTo('/dashboard');
         }
 

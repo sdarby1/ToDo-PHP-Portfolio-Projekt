@@ -13,7 +13,7 @@ use App\Traits\HasProtectedRoutes;
 class RegisterController extends BaseController {
     use HasProtectedRoutes;
 
-    // GET Request
+ 
     public function index(Request $request)
     {
         $this->redirectAuthenticatedUsers();
@@ -21,7 +21,6 @@ class RegisterController extends BaseController {
         $this->response->view('register/index');
     }
 
-    // POST Request
     public function create(Request $request)
     {
         $this->redirectAuthenticatedUsers();
@@ -50,7 +49,7 @@ class RegisterController extends BaseController {
             );
         }
 
-        // User Registrierung
+ 
         $user = new User($this->db);
 
         try {

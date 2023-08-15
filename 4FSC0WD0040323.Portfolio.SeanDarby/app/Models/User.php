@@ -40,16 +40,15 @@ class User {
 
     public function register(string $username, string $email, string $password): void
     {
-        // Prüfen, ob user schon existiert
+
         $sql = "SELECT 1 FROM `users` WHERE `username` = :username OR `email` = :email";
-        // Prepared Statement als Schutz gegen SQL Injection
+
         $statement = $this->db->query($sql, [ 'username' => $username, 'email' => $email ]);
 
         if ($statement->rowCount() > 0) {
             throw new Exception("❌ Der Account existiert bereits.");
         }
 
-        // User registrieren
         $sql = "
             INSERT INTO `users`
             (`username`, `email`, `password`, `joined_at`)
@@ -70,20 +69,18 @@ class User {
 
     public function login(string $username, string $password)
     {
-        // Versuchen, den User zu finden
+
         if (!$this->find($username)) {
             throw new Exception(data: [ 'username' => ['❌ Der Nutzername konnte nicht gefunden werden.'] ]);
         }
 
-        // Passwort-Hash aus den Userdaten
         $passwordHash = $this->password;
 
-        // Passwort aus dem Formular mit Hash aus der DB abgleichen
         if (!password_verify($password, $passwordHash)) {
             throw new Exception(data: ['password' => ["❌ Falsches Passwort."] ]);
         }
 
-        // Die Session für den User erstellen = einloggen
+
         Session::set('userId', (int) $this->id);
     }
 

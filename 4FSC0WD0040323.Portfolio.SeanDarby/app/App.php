@@ -19,7 +19,6 @@ use App\Controllers\{
 class App {
     public function __construct()
     {
-        // $this->autoloadClasses();
 
         $router = new Router;
         $this->defineRoutes($router);

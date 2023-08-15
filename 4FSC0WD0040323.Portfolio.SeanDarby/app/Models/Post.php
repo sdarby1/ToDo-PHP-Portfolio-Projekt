@@ -155,7 +155,6 @@ class Post {
 
     public function getCreatedAt(): string
     {
-        //Tue, 02.05.2023 20:14:23
         return date('D, d.m.Y H:i:s', $this->createdAt);
     }
 
